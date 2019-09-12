@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    return "page"
     """Return homepage."""
     # TODO: Extract the query term from url using request.args.get()
 
