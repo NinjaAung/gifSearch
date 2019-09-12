@@ -1,13 +1,21 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 import requests
 import json
 
 app = Flask(__name__)
 
+# params = {
+#     "q": query_term,
+#     "Key": "WL6NLFPEQRYR"
+# }
+# response = requests.get(
+#     'https://api.tenor.com/v1/search',
+#     params=params)
+
 @app.route('/')
 def index():
-    return "page"
     """Return homepage."""
+    user_search = request.args.get('user_search')
     # TODO: Extract the query term from url using request.args.get()
 
     # TODO: Make 'params' dictionary containing:
@@ -28,7 +36,7 @@ def index():
     # TODO: Render the 'index.html' template, passing the list of gifs as a
     # named parameter called 'gifs'
 
-    return render_template("index.html")
+    return render_template("index.html", user_search=user_search)
 
 if __name__ == '__main__':
     app.run(debug=True)
