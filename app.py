@@ -8,14 +8,23 @@ app = Flask(__name__)
 #     "q": query_term,
 #     "Key": "WL6NLFPEQRYR"
 # }
-# response = requests.get(
-#     'https://api.tenor.com/v1/search',
-#     params=params)
+
 
 @app.route('/')
 def index():
     """Return homepage."""
     user_search = request.args.get('user_search')
+    params = { "search_term": user_search, "apikey": , "lmt": 10 }
+    response = requests.get(
+    'https://api.tenor.com/v1/search',
+    params=params)
+
+    if response.status_code == 200:
+        top10_gifs = json.loads(response.content)
+        print top10_gifs
+    else:
+        top10_gifs = None
+
     # TODO: Extract the query term from url using request.args.get()
 
     # TODO: Make 'params' dictionary containing:

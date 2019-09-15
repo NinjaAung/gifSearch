@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<form action ='/'>
-    <p>
-        Search for gifs in search box
-        <input type="text" name="user_search"/>
-    </p>
+<form action="/" method="get">
+    <p>Search for gif in Search Box</p>
+    <input autofocus name="user_search" placeholder="Query" type="text">
+    <input type="submit" value="Search">
 </form>
 {% endblock %}
 

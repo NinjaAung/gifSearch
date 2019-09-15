@@ -3,14 +3,24 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <title>GIF Search</title>
 </head>
+
+<div class ="header">
+    <h3>Search and Display 10 gifs Now </h3>
+</div>
+
+<div id="test">
+    <p>This is a test for CSS</p>
+</div>
 
 <header>
     {% block header %}
     {% endblock %}
 </header>
+
 <body>
 {% block body %}
 {% endblock %}

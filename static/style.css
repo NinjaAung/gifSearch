@@ -1,11 +1,29 @@
 header {
     color: orange;
+    text-align: left;
     font-size: 2em;
     background-color: bisque
 }
 
 body {
-    color: blue;
+    color: yellowgreen;
     font-size: 1em;
     background-color: aqua
+}
+
+.header{
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 2em;
+    font-family: sans-serif;
+}
+
+#test{
+    color: rgb(255, 0, 21)
+}
+
+input {
+    float: left;
+    clear: both;
 }
