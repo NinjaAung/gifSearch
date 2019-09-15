@@ -16,18 +16,23 @@
     <p>This is a test for CSS</p>
 </div>
 
-<header>
-    {% block header %}
-    {% endblock %}
-</header>
+
+<form action="/" method="get">
+    <p>Search for gif in Search Box</p>
+    <input autofocus name="q" placeholder="Search Here" type="text">
+    <input type="submit" value="Search">
+</form>
+
 
 <body>
-{% block body %}
-{% endblock %}
+    <div align="center">
+        {% block body %}
+        {% endblock %}
     <!-- TODO: Make a block 'body' so that the homepage can extend base -->
 
     <!-- Include the Tenor JavaScript to fill in GIFs appropriately 
         (note: this script is required, so do not modify/remove it) -->
     <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div>
 </body>
 </html>

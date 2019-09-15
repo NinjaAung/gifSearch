@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 
-{% block header %}
-<form action="/" method="get">
-    <p>Search for gif in Search Box</p>
-    <input autofocus name="user_search" placeholder="Query" type="text">
-    <input type="submit" value="Search">
-</form>
-{% endblock %}
 
 {% block body %}
-<p>Did you want to search for {{ user_search }}</p>
+    {% if q %}
+        Searching for {{ q }}
+    {% else %}
+        Some random Gifs
+    {% endif %}
+
+    {% for url in gif_urls%}
+        {% include 'gif.html' %}
+    {% endfor %}
 {% endblock %}
+
 
 
 <!-- TODO: Extend 'base.html' and put content into a block 'body' to match -->

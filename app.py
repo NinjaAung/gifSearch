@@ -13,17 +13,22 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     """Return homepage."""
-    user_search = request.args.get('user_search')
-    params = { "search_term": user_search, "apikey": , "lmt": 10 }
+    q = request.args.get('q')
+    params = { "q": q, "key": "UFXFWLXQEZ03", "limit": 2 }
+
     response = requests.get(
     'https://api.tenor.com/v1/search',
     params=params)
 
+    # gif_json = response.json()
+    # gif_show = gif_json['results'][1]['media'][0]['gif']['url']
+    
     if response.status_code == 200:
         top10_gifs = json.loads(response.content)
-        print top10_gifs
-    else:
-        top10_gifs = None
+        gif_urls = top10_gifs["results"]
+        # print(top10_gifs['results'])
+        # print(top10_gifs['results'][0]['media'][0]['gif']['url'])
+        return render_template("index.html", gif_urls=gif_urls, q=q)
 
     # TODO: Extract the query term from url using request.args.get()
 
@@ -45,7 +50,7 @@ def index():
     # TODO: Render the 'index.html' template, passing the list of gifs as a
     # named parameter called 'gifs'
 
-    return render_template("index.html", user_search=user_search)
+    # return render_template("index.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
