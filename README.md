@@ -32,7 +32,7 @@ flask run
 
 
 ### Stretch Goals
-✅ Add a gitignore file and edit it so that “.DS_Store” and “.env” won’t get tracked in Git. What else shouldn't be tracked?
+- [x] Add a gitignore file and edit it so that “.DS_Store” and “.env” won’t get tracked in Git. What else shouldn't be tracked?
 - [ ] Center-align everything on the page
 - [ ] Display the GIFs in a grid instead of a list
 - [ ] [Add a button that displays the top 10 trending GIFs on Tenor](https://tenor.com/gifapi/documentation#endpoints-trendinggifs)
