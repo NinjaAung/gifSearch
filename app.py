@@ -14,21 +14,38 @@ app = Flask(__name__)
 def index():
     """Return homepage."""
     q = request.args.get('q')
-    params = { "q": q, "key": "UFXFWLXQEZ03", "limit": 2 }
+    params = { "q": q, "key": "UFXFWLXQEZ03", "limit": 6 }
 
     response = requests.get(
-    'https://api.tenor.com/v1/search',
-    params=params)
+    'https://api.tenor.com/v1/search', params=params)
 
-    # gif_json = response.json()
-    # gif_show = gif_json['results'][1]['media'][0]['gif']['url']
-    
-    if response.status_code == 200:
-        top10_gifs = json.loads(response.content)
-        gif_urls = top10_gifs["results"]
-        # print(top10_gifs['results'])
-        # print(top10_gifs['results'][0]['media'][0]['gif']['url'])
-        return render_template("index.html", gif_urls=gif_urls, q=q)
+    gif_json = response.json()
+    gif_urls = gif_json['results']
+
+    return render_template("index.html", gif_urls=gif_urls, q=q)
+
+    # if response.status_code == 200:
+    #     gifs_results = json.loads(response.content)
+    #     gif_urls = gifs_results["results"]
+    #     # print(gifs_results['results'])
+    #     # print(gifs_results['results'][0]['media'][0]['gif']['url'])
+    #     return render_template("index.html", gif_urls=gif_urls, q=q)
+    # else:
+    #     return "Search in valid"
+
+
+    # elif request.args.get["action"] == "Random":
+    #     pass
+
+@app.route('/top10')
+def top10():
+    params = { "key": "UFXFWLXQEZ03", "limit": 4 }
+    response = requests.get(
+    'https://api.tenor.com/v1/trending', params=params)
+
+    gif_json = response.json()
+    gif_urls = gif_json['results']    
+    return render_template("top10.html", gif_urls=gif_urls)
 
     # TODO: Extract the query term from url using request.args.get()
 

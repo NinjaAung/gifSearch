@@ -3,14 +3,20 @@
 
 {% block body %}
     {% if q %}
-        Searching for {{ q }}
+        <h4>Gifs results for "{{ q }}"</h4>
     {% else %}
-        Some random Gifs
+        <h4>Some random Gifs</h4>
     {% endif %}
 
-    {% for url in gif_urls%}
-        {% include 'gif.html' %}
-    {% endfor %}
+    {% if not gif_urls %}
+    <br>
+    SORRY! NO GIFS FOUND
+    {% else %}
+        {% for url in gif_urls %}
+            {% include 'gif.html' %}
+        {% endfor %}
+    {% endif %}
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 {% endblock %}
 
 
