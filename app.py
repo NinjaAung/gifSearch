@@ -14,7 +14,11 @@ app = Flask(__name__)
 def index():
     """Return homepage."""
     q = request.args.get('q')
-    params = { "q": q, "key": "UFXFWLXQEZ03", "limit": 6 }
+    params = { 
+        "q": q, 
+        "key": "UFXFWLXQEZ03", 
+        "limit": 6 
+        }
 
     response = requests.get(
     'https://api.tenor.com/v1/search', params=params)
