@@ -1,4 +1,17 @@
-<!-- templates/index.html -->
+{% extends 'base.html' %}
+
+{% block header %}
+<form action ='/'>
+    <p>
+        Search for gifs in search box
+        <input type="text" name="user_search"/>
+    </p>
+</form>
+{% endblock %}
+
+{% block body %}
+<p>Did you want to search for {{ user_search }}</p>
+{% endblock %}
 
 
 <!-- TODO: Extend 'base.html' and put content into a block 'body' to match -->
