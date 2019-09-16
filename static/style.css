@@ -1,11 +1,57 @@
 header {
     color: orange;
+    text-align: left;
     font-size: 2em;
-    background-color: bisque
+    background-color: rgb(63, 219, 219)
 }
 
-body {
-    color: blue;
+#thebody {
+    align-content: center;
+    color: rgb(76, 100, 28);
     font-size: 1em;
-    background-color: aqua
+    background-color: rgb(75, 221, 231)
 }
+
+.header{
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 2em;
+    font-family: sans-serif;
+}
+
+#test{
+    color: rgb(255, 0, 21)
+}
+
+/* .tenor-gif-embed {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: 400px 400px 400px;
+    grid-template-rows: 400px;
+    grid-row-gap: 10px;
+} */
+
+.tenor-gif-embed {
+    align-content: center;
+}
+
+#query {
+    border: 5px solid #4465a3;
+    height: 30px;
+    font-size: 14pt;
+
+}
+
+button {
+    border: 5px solid #770e3a;
+    font-size: 13px;
+
+}
+
+input {
+    border: 5px solid #afc54f;
+    font-size: 13px;
+}
+
+

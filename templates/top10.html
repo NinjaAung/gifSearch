@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h3>TOP 10 Gifs</h3>
+    {% for url in gif_urls %}
+        {% include 'gif.html' %}
+    {% endfor %}
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+{% endblock %}
