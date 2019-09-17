@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
-{% block body %}
+{% block title %}
 <h3>TOP 10 Gifs</h3>
+{% endblock %}
+
+{% block body %}
     {% for url in gif_urls %}
         {% include 'gif.html' %}
     {% endfor %}

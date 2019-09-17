@@ -32,6 +32,13 @@ header {
     grid-row-gap: 10px;
 } */
 
+.body_container{
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
+
 .tenor-gif-embed {
     align-content: center;
 }
@@ -46,12 +53,17 @@ header {
 button {
     border: 5px solid #770e3a;
     font-size: 13px;
+    background-color: #b5dad2
+
 
 }
 
 input {
     border: 5px solid #afc54f;
     font-size: 13px;
+    background-color: #abddd3
 }
 
-
+#title_block {
+    text-align: center
+}

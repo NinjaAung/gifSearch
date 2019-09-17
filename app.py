@@ -17,7 +17,7 @@ def index():
     params = { 
         "q": q, 
         "key": "UFXFWLXQEZ03", 
-        "limit": 6 
+        "limit": 8 
         }
 
     response = requests.get(
@@ -43,7 +43,7 @@ def index():
 
 @app.route('/top10')
 def top10():
-    params = { "key": "UFXFWLXQEZ03", "limit": 4 }
+    params = { "key": "UFXFWLXQEZ03", "limit": 10 }
     response = requests.get(
     'https://api.tenor.com/v1/trending', params=params)
 

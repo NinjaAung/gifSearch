@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
-
-{% block body %}
+{% block title %}
     {% if q %}
         <h4>Gifs results for "{{ q }}"</h4>
     {% else %}
         <h4>Some random Gifs</h4>
     {% endif %}
+{% endblock %}
 
+
+{% block body %}
     {% if not gif_urls %}
     <br>
     SORRY! NO GIFS FOUND
