@@ -4,10 +4,9 @@ import json
 
 app = Flask(__name__)
 
-# params = {
-#     "q": query_term,
-#     "Key": "WL6NLFPEQRYR"
-# }
+def api_choice(api):
+    return f'https://api.tenor.com/v1/{api}?key=UFXFWLXQEZ03&limit=12'
+    
 
 
 @app.route('/')
@@ -41,8 +40,13 @@ def index():
     # elif request.args.get["action"] == "Random":
     #     pass
 
-def api_choice(api):
-    return f'https://api.tenor.com/v1/{api}?key=UFXFWLXQEZ03&limit=10'
+
+@app.route('/random')
+def random():
+    response = request.get(api_choice('random'))
+    gif_json = response.json()
+    gif_urls = gif_json['results']
+    return render_template("output.html", gif_urls=gif_urls)
 
 
 @app.route('/trending')
@@ -50,7 +54,7 @@ def trending():
     response = requests.get(api_choice('trending'))
     gif_json = response.json()
     gif_urls = gif_json['results']    
-    return render_template("top10.html", gif_urls=gif_urls)
+    return render_template("output.html", gif_urls=gif_urls)
 
     # TODO: Extract the query term from url using request.args.get()
 

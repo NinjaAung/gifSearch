@@ -10,19 +10,19 @@
 </head>
 
 
-<div class="header">
-    <h3><a href="{{ url_for('index') }}"> Search and Display Gifs Now </a></h3>
-</div>
-
-<form action="/", method="get">
-    <h4>Search for gif in Search Box</h4>
-    <input id="query" autofocus name="q" placeholder="Search Here" type="text">
-    <input type="submit" name="action" value="Search">
-    <a href=/trending><input type="button" value="Trending"></a>
-    <a href=/random><input type="button" valute="Random"></a>
-</form>
-
 <body id="thebody">
+    <div class="header">
+        <h3><a href="{{ url_for('index') }}"> Search and Display Gifs Now </a></h3>
+    </div>
+
+            <form action="/", method="get">
+                <h4>Search for gif in Search Box</h4>
+                <input id="query" autofocus name="q" placeholder="Search Here" type="text">
+                <input type="submit" name="action" value="Search">
+                <a href=/trending><input type="button" value="Trending"></a>
+                <a href=/random><input type="button" valute="Random"></a>
+            </form>
+
     <div id="title_block">{% block title %}{% endblock %}</div>
     <div class = "body_container">
         {% block body %}
