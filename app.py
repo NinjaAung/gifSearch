@@ -41,11 +41,13 @@ def index():
     # elif request.args.get["action"] == "Random":
     #     pass
 
-@app.route('/trending')
-def top10():
-    response = requests.get(
-    'https://api.tenor.com/v1/trending?key=UFXFWLXQEZ03&limit=10')
+def api_choice(api):
+    return f'https://api.tenor.com/v1/{api}?key=UFXFWLXQEZ03&limit=10'
 
+
+@app.route('/trending')
+def trending():
+    response = requests.get(api_choice('trending'))
     gif_json = response.json()
     gif_urls = gif_json['results']    
     return render_template("top10.html", gif_urls=gif_urls)
