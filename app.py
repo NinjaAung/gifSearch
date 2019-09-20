@@ -52,7 +52,7 @@ def random():
            render_template: renders output.html and parses in html file for random
            gif_url: json library of the gif dictionary 
     '''
-    response = request.get(api_choice('random'))
+    response = request.get(api_choice('trending'))
     gif_json = response.json()
     gif_urls = gif_json['results']
     return render_template("output.html", gif_urls=gif_urls)
