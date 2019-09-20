@@ -5,11 +5,6 @@ import json
 app = Flask(__name__)
 
 
-
-
-
-
-
 def api_choice(api):
     '''
     A function that simplifys api choice for other functions.
@@ -19,7 +14,6 @@ def api_choice(api):
         string:r returns link with the give Args 
     '''
     return f'https://api.tenor.com/v1/{api}?key=UFXFWLXQEZ03&limit=12'
-    
 
 
 @app.route('/')
@@ -48,21 +42,6 @@ def index():
 
     return render_template("index.html", gif_urls=gif_urls, q=q)
 
-'''
-    old code
-     if response.status_code == 200:
-         gifs_results = json.loads(response.content)
-         gif_urls = gifs_results["results"]
-         # print(gifs_results['results'])
-         # print(gifs_results['results'][0]['media'][0]['gif']['url'])
-         return render_template("index.html", gif_urls=gif_urls, q=q)
-     else:
-        return "Search in valid"
-
-
-     elif request.args.get["action"] == "Random":
-         pass
-'''
 
 @app.route('/random')
 def random():
@@ -92,6 +71,7 @@ def trending():
     gif_json = response.json()
     gif_urls = gif_json['results']    
     return render_template("output.html", gif_urls=gif_urls)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
