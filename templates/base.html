@@ -1,6 +1,7 @@
 <!-- templates/base.html -->
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, width=device-width">
@@ -8,6 +9,7 @@
     <title>GIF Search</title>
 </head>
 
+<!--header-->
 <div class="header">
     <h3><a href="{{ url_for('index') }}"> Search and Display Gifs Now </a></h3>
 </div>
@@ -16,7 +18,12 @@
     <h4>Search for gif in Search Box</h4>
     <input id="query" autofocus name="q" placeholder="Search Here" type="text">
     <input type="submit" name="action" value="Search">
-    <a href=/top10><input type="button" value="Top 10"></a>
+        <div>
+            <!--Quick buttons-->
+            <a href=/trending><input type="button" value="Trending"></a>
+            <!--Front page is already randomized so hit refresh-->
+            <!--<a href=/random><input type="button" value="Random"></a>-->
+        </div>
 </form>
 
 <body id="thebody">
@@ -24,11 +31,10 @@
     <div class = "body_container">
         {% block body %}
         {% endblock %}
-    <!-- TODO: Make a block 'body' so that the homepage can extend base -->
-
-    <!-- Include the Tenor JavaScript to fill in GIFs appropriately 
-        (note: this script is required, so do not modify/remove it) -->
         <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
     </div>
 </body>
+
+
+
 </html>

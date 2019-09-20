@@ -4,20 +4,34 @@ import json
 
 app = Flask(__name__)
 
-# params = {
-#     "q": query_term,
-#     "Key": "WL6NLFPEQRYR"
-# }
+
+def api_choice(api):
+    '''
+    A function that simplifys api choice for other functions.
+    Args:
+        api (string): a string literal that specify what the user requests, Random, Trending, ETC
+    Returns: 
+        string:r returns link with the give Args 
+    '''
+    return f'https://api.tenor.com/v1/{api}?key=UFXFWLXQEZ03&limit=12'
 
 
 @app.route('/')
 def index():
-    """Return homepage."""
+    '''
+    Return homepage
+
+    A function that returns User to the homepage and parses random gifs
+    Returns: 
+        rendur_template: renders index.html for the Flask framework
+        params: paramaters in the api that query the results in the html
+
+    '''
     q = request.args.get('q')
     params = { 
         "q": q, 
         "key": "UFXFWLXQEZ03", 
-        "limit": 8 
+        "limit": 12
         }
 
     response = requests.get(
@@ -28,50 +42,38 @@ def index():
 
     return render_template("index.html", gif_urls=gif_urls, q=q)
 
-    # if response.status_code == 200:
-    #     gifs_results = json.loads(response.content)
-    #     gif_urls = gifs_results["results"]
-    #     # print(gifs_results['results'])
-    #     # print(gifs_results['results'][0]['media'][0]['gif']['url'])
-    #     return render_template("index.html", gif_urls=gif_urls, q=q)
-    # else:
-    #     return "Search in valid"
 
 
-    # elif request.args.get["action"] == "Random":
-    #     pass
+# Begginign ouput is already random just hit refresh
+@app.route('/random')
+def random():
+    '''
+    A function that renders the output.html and spits out random gifs for the page.
+        Uses: api_choices function: to parse random
+    Returns: 
+           render_template: renders output.html and parses in html file for random
+           gif_url: json library of the gif dictionary 
+    '''
+    response = request.get(api_choice('trending'))
+    gif_json = response.json()
+    gif_urls = gif_json['results']
+    return render_template("output.html", gif_urls=gif_urls)
 
-@app.route('/top10')
-def top10():
-    params = { "key": "UFXFWLXQEZ03", "limit": 10 }
-    response = requests.get(
-    'https://api.tenor.com/v1/trending', params=params)
 
+@app.route('/trending')
+def trending():
+    '''
+    A function that renders the output.html and spits out trending gifs for the page.
+        Uses: api_choices function: to parse trending
+    Returns: 
+           render_template: renders output.html and parses in html file for trending page
+           gif_url: json library of the gif dictionary 
+    '''
+    response = requests.get(api_choice('trending'))
     gif_json = response.json()
     gif_urls = gif_json['results']    
-    return render_template("top10.html", gif_urls=gif_urls)
+    return render_template("output.html", gif_urls=gif_urls)
 
-    # TODO: Extract the query term from url using request.args.get()
-
-    # TODO: Make 'params' dictionary containing:
-    # a) the query term, 'q'
-    # b) your API key, 'key'
-    # c) how many GIFs to return, 'limit'
-
-    # TODO: Make an API call to Tenor using the 'requests' library. For 
-    # reference on how to use Tenor, see: 
-    # https://tenor.com/gifapi/documentation
-
-    # TODO: Use the '.json()' function to get the JSON of the returned response
-    # object
-
-    # TODO: Using dictionary notation, get the 'results' field of the JSON,
-    # which contains the GIFs as a list
-
-    # TODO: Render the 'index.html' template, passing the list of gifs as a
-    # named parameter called 'gifs'
-
-    # return render_template("index.html")
 
 if __name__ == '__main__':
     app.run(debug=True)

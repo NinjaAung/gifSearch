@@ -4,9 +4,9 @@
 # Apple's way of storing custom attributes of folder
 .DS_Store
 
+
 # Unix command shell
 .env
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
-
