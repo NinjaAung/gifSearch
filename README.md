@@ -23,7 +23,7 @@ gifSearch
 Flask and Request Modules needs to run the
 
 ```
-pip3 install requests flask
+~$ pip3 install requests flask
 ```
 
 ## How To Run Flask Appilcation
