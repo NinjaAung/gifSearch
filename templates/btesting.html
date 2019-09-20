@@ -23,7 +23,14 @@
                 <a href=/random><input type="button" valute="Random"></a>
             </form>
 
-    <div id="title_block">{% block title %}{% endblock %}</div>
+
+        <div id="title_block">
+            {% if q %}
+                <h4>Gifs results for "{{ q }}"</h4>
+            {% else %}
+                <h4>Some random Gifs</h4>
+            {% endif %}
+        </div>
     <div class = "body_container">
         {% block body %}
         {% endblock %}
@@ -34,7 +41,5 @@
         <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
     </div>
 </body>
-
-
 
 </html>

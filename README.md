@@ -1,6 +1,5 @@
 ### How To Run Flask Appilcation
-
-```bash
+```
 export FLASK_ENV=development
 flask run
 ```
