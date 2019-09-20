@@ -1,7 +1,6 @@
 # Gif Search 
-Using Flask frameworks, Json, Request and API learned in class to build a Gif Search that uses the Tenor API
-
-
+Using Flask frameworks, Json, Request and API learned in class to build a Gif Search that uses the Tenor API:
+![Image of page](/images/gifPage.png)
 ## Structure
 ```
 gifSearch
