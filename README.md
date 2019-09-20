@@ -1,17 +1,44 @@
-### How To Run Flask Appilcation
-```
-export FLASK_ENV=development
-flask run
-```
+# Gif Search 
+Using Flask frameworks, Json, Request and API learned in class to build a Gif Search that uses the Tenor API
 
 
-### Division of Labor
+## Structure
+```
+gifSearch
+| - static: Style Sheets
+    | - style.css: look nice nice
+| - templates: HTML files for Framework
+    | - base.html: All organized elements of the webppage
+    | - gif.html: parsing the gifs
+    | - index.html: Jinja indexing the files
+    | - output.html: Query outputs for search
+| - app.py: Flask Framework
+```
+
+## Authors
+[Cao Mai](github.com/NinjaAung) Github
+
+[Nyein Chan Aung](github.com/caocmai) Github
+
+## Needed to run Flask application
+Flask and Request Modules needs to run the
+
+```
+pip3 install requests flask
+```
+
+## How To Run Flask Appilcation
+Be in the root of the file
+
+```
+~/gifSeatch export FLASK_ENV=development
+~/gifSeatch flask run
+```
+
+## Division of Labor
 [Trello Board](https://trello.com/b/TGQ3SeYq/gifsearch) - Board is public anyone can view
 
-
-
-
-### Requirments
+## Requirments
 - [x] The page must use templates
 - [x] The page must display GIFs (10 at the most)
 - [x] GIFs should appear in a single vertical list
@@ -21,26 +48,26 @@ flask run
 - [x] GIFs should be displayed on a fresh load of the page, i.e. before a query has even been typed.
 - [x] GIFs should only update once a user has pressed the “Search” button
 - [X] If no GIFs could be found for the search term, display an error message saying that no GIFs could be found, and to try another search quer
-- [ ] The following elements should have some custom styling (i.e. CSS rules) added to them:
+- [x] The following elements should have some custom styling (i.e. CSS rules) added to them:
     1. Page Title
     2. Search Bar
     3. Search item
-- [X] All code must be commented with a description of what the code is doing, expected input, and expected output
+- [x] All code must be commented with a description of what the code is doing, expected input, and expected output
 
 
-### Stretch Goals
+## Stretch Goals
 - [x] Add a gitignore file and edit it so that “.DS_Store” and “.env” won’t get tracked in Git. What else shouldn't be tracked?
-- [ ] Center-align everything on the page
+- [x] Center-align everything on the page
 - [x] Display the GIFs in a grid instead of a list
 - [x] [Add a button that displays the top 10 trending GIFs on Tenor](https://tenor.com/gifapi/documentation#endpoints-trendinggifs)
-- [ ] [Add a button that displays 10 random GIFs on Tenor](https://tenor.com/gifapi/documentation#endpoints-random)
+- [x] [Add a button that displays 10 random GIFs on Tenor](https://tenor.com/gifapi/documentation#endpoints-random)
 - [ ] Type-ahead: as the user types in the search box, the page is reloading the gifs to match the search query in real time (no longer needing to click the search button)
 
-### Rubric
+## Rubric
 [Project rubirc here](https://docs.google.com/document/d/1u8zn_w9kQceK1y0f0F6QEWWgP8T7KRsQvQOIvlzyMi0/edit)
 
 
-### Resources
+## Resources
 
 You may find the following resources helpful in your development process:
 

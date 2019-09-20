@@ -43,6 +43,8 @@ def index():
     return render_template("index.html", gif_urls=gif_urls, q=q)
 
 
+
+# Begginign ouput is already random just hit refresh
 @app.route('/random')
 def random():
     '''
