@@ -1,6 +1,12 @@
 from flask import Flask, render_template, request, url_for
 import requests
+import os
 import json
+
+from dotenv import load_dotenv
+load_dotenv()
+
+TENOR_API_KEY = os.getenv("TENOR_API_KEY")
 
 app = Flask(__name__)
 
@@ -13,7 +19,7 @@ def api_choice(api):
     Returns: 
         string:r returns link with the give Args 
     '''
-    return f'https://api.tenor.com/v1/{api}?key=UFXFWLXQEZ03&limit=12'
+    return f'https://api.tenor.com/v1/{api}?key={TENOR_API_KEY}&limit=12'
 
 
 @app.route('/')
@@ -30,7 +36,7 @@ def index():
     q = request.args.get('q')
     params = { 
         "q": q, 
-        "key": "UFXFWLXQEZ03", 
+        "key": f"{TENOR_API_KEY}", 
         "limit": 12
         }
 
